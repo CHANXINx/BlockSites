@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "BlockSites",
+  "version": "0.1.0",
+  "description": "Block distracting sites with scheduled allow windows.",
+  "permissions": ["storage", "declarativeNetRequest", "alarms", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "BlockSites",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "blocked.js", "blocked.css"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}

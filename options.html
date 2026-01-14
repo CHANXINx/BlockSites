@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockSites Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>BlockSites Settings</h1>
+    <section>
+      <h2>Blocking</h2>
+      <div class="row">
+        <label for="enabled">Enable blocking</label>
+        <input id="enabled" type="checkbox">
+      </div>
+    </section>
+    <section>
+      <h2>Appearance</h2>
+      <div class="row">
+        <label for="appearance">Overall appearance</label>
+        <select id="appearance">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </section>
+    <section>
+      <h2>Blocked Sites</h2>
+      <div class="row">
+        <input id="site-input" placeholder="e.g. youtube.com">
+        <button id="add-site">Add</button>
+      </div>
+      <ul id="sites-list"></ul>
+    </section>
+    <section>
+      <h2>Allow Windows</h2>
+      <div class="row">
+        <label>Start</label>
+        <input id="start-time" type="time">
+        <label>End</label>
+        <input id="end-time" type="time">
+        <button id="add-window">Add Window</button>
+      </div>
+      <ul id="windows-list"></ul>
+      <p class="hint">Windows repeat daily. Outside windows, blocked sites are redirected.</p>
+    </section>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
