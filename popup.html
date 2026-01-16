@@ -8,21 +8,39 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="row">
-      <div class="label">Site</div>
-      <div id="domain"></div>
+    <header class="header">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+        <h1>BlockSites</h1>
+      </div>
+    </header>
+    
+    <div class="card">
+      <div class="row">
+        <div class="label">Current Site</div>
+        <div id="domain" class="value"></div>
+      </div>
+      <div class="row">
+        <div class="label">Status</div>
+        <div id="status" class="value"></div>
+      </div>
+      <div class="row">
+        <div class="label">Active Rules</div>
+        <div id="rulecount" class="value">...</div>
+      </div>
     </div>
-    <div class="row">
-      <div class="label">Status</div>
-      <div id="status"></div>
+
+    <div class="actions">
+      <button id="block-btn" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+        <span>Block this site</span>
+      </button>
+      <button id="open-settings" class="btn btn-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Settings</span>
+      </button>
+      <button id="reset-rules" class="btn btn-text">Reset Rules</button>
     </div>
-    <div class="row">
-      <div class="label">Rules</div>
-      <div id="rulecount">...</div>
-    </div>
-    <button id="block-btn">Block this site</button>
-    <button id="open-settings">Open Settings</button>
-    <button id="reset-rules">Reset Blocking Rules</button>
   </div>
   <script src="popup.js"></script>
 </body>

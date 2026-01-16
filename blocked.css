@@ -9,52 +9,90 @@
 :root {
   --bg: #0f172a;
   --fg: #e5e7eb;
+  --accent: #6366f1;
 }
+
 @media (prefers-color-scheme: light) {
   body[data-theme="system"] {
-    --bg: #f7f7f8;
-    --fg: #222;
+    --bg: #f8fafc;
+    --fg: #1e293b;
   }
 }
+
 body[data-theme="light"] {
-  --bg: #f7f7f8;
-  --fg: #222;
+  --bg: #f8fafc;
+  --fg: #1e293b;
 }
+
 body[data-theme="dark"] {
   --bg: #0f172a;
   --fg: #e5e7eb;
 }
+
 body {
   margin: 0;
   height: 100vh;
   background: var(--bg);
   color: var(--fg);
   font-family: "AppSegoeUIVariable", "Segoe UI Variable", "Segoe UI Variable Text", "Segoe UI Variable Display", "Segoe UI", Segoe UI, -apple-system, system-ui, Roboto, Arial, sans-serif;
-  font-weight: 700;
-  font-optical-sizing: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.center {
+
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  gap: 12px;
-}
-.quote {
-  width: 90vw;
-  max-width: 90vw;
+  max-width: 800px;
+  padding: 40px;
   text-align: center;
-  font-size: 40px;
-  line-height: 1.05;
+}
+
+.icon {
+  color: var(--accent);
+  margin-bottom: 24px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 32px 0;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.quote-container {
+  margin-bottom: 48px;
+}
+
+.quote {
+  font-size: 32px;
+  line-height: 1.4;
   font-weight: 600;
-  letter-spacing: -0.01em;
-  font-optical-sizing: auto;
-  font-variation-settings: "wght" 600, "opsz" 24;
-  color: #cbd5e1;
-  white-space: nowrap;
-  overflow: hidden;
+  color: var(--fg);
+  margin: 0;
+}
+
+.footer {
+  color: var(--fg);
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }

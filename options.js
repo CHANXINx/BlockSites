@@ -55,18 +55,20 @@ function renderSites(sites) {
   ul.innerHTML = ""
   for (const s of sites) {
     const li = document.createElement("li")
-    li.textContent = s
-    const actions = document.createElement("div")
-    actions.className = "item-actions"
+    const span = document.createElement("span")
+    span.textContent = s
+    li.appendChild(span)
+
     const removeBtn = document.createElement("button")
-    removeBtn.textContent = "Remove"
+    removeBtn.className = "delete-btn"
+    removeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>`
+    removeBtn.title = "Remove"
     removeBtn.onclick = () => {
       const next = sites.filter(x => x !== s)
       renderSites(next)
       saveSites(next)
     }
-    actions.appendChild(removeBtn)
-    li.appendChild(actions)
+    li.appendChild(removeBtn)
     ul.appendChild(li)
   }
 }
@@ -86,18 +88,18 @@ function renderWindows(windows) {
     const li = document.createElement("li")
     const label = document.createElement("span")
     label.textContent = formatMinutes(w.startMinutes) + " → " + formatMinutes(w.endMinutes)
-    const actions = document.createElement("div")
-    actions.className = "item-actions"
+    li.appendChild(label)
+
     const removeBtn = document.createElement("button")
-    removeBtn.textContent = "Remove"
+    removeBtn.className = "delete-btn"
+    removeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>`
+    removeBtn.title = "Remove"
     removeBtn.onclick = () => {
       const next = windows.filter(x => !(x.startMinutes === w.startMinutes && x.endMinutes === w.endMinutes))
       renderWindows(next)
       saveWindows(next)
     }
-    actions.appendChild(removeBtn)
-    li.appendChild(label)
-    li.appendChild(actions)
+    li.appendChild(removeBtn)
     ul.appendChild(li)
   }
 }

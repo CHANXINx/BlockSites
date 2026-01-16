@@ -28,8 +28,10 @@ function updateStatus() {
     }
     if (res.enabled === false) {
       el.textContent = "Disabled"
+      el.style.color = "var(--muted)"
     } else {
-      el.textContent = res.allowed ? "Allowed now" : "Blocked now"
+      el.textContent = res.allowed ? "Allowed" : "Blocked"
+      el.style.color = res.allowed ? "var(--primary)" : "var(--danger)"
     }
   })
 }

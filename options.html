@@ -8,45 +8,77 @@
 </head>
 <body>
   <div class="container">
-    <h1>BlockSites Settings</h1>
-    <section>
-      <h2>Blocking</h2>
-      <div class="row">
-        <label for="enabled">Enable blocking</label>
-        <input id="enabled" type="checkbox">
+    <header class="header">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+        <h1>BlockSites Settings</h1>
       </div>
-    </section>
-    <section>
-      <h2>Appearance</h2>
-      <div class="row">
-        <label for="appearance">Overall appearance</label>
-        <select id="appearance">
-          <option value="system">System</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
-      </div>
-    </section>
-    <section>
-      <h2>Blocked Sites</h2>
-      <div class="row">
-        <input id="site-input" placeholder="e.g. youtube.com">
-        <button id="add-site">Add</button>
-      </div>
-      <ul id="sites-list"></ul>
-    </section>
-    <section>
-      <h2>Allow Windows</h2>
-      <div class="row">
-        <label>Start</label>
-        <input id="start-time" type="time">
-        <label>End</label>
-        <input id="end-time" type="time">
-        <button id="add-window">Add Window</button>
-      </div>
-      <ul id="windows-list"></ul>
-      <p class="hint">Windows repeat daily. Outside windows, blocked sites are redirected.</p>
-    </section>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <div class="card-header">
+          <h2>General</h2>
+        </div>
+        <div class="card-body">
+          <div class="control-group">
+            <div class="control-label">
+              <label for="enabled">Enable Blocking</label>
+              <span class="description">Toggle the extension on or off</span>
+            </div>
+            <div class="toggle-switch">
+              <input id="enabled" type="checkbox">
+              <label for="enabled" class="switch-label"></label>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="control-label">
+              <label for="appearance">Theme</label>
+              <span class="description">Choose how the extension looks</span>
+            </div>
+            <select id="appearance" class="select-input">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Blocked Sites</h2>
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <input id="site-input" placeholder="e.g. youtube.com" class="text-input">
+            <button id="add-site" class="btn btn-primary">Add Site</button>
+          </div>
+          <ul id="sites-list" class="list"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Allow Windows</h2>
+        </div>
+        <div class="card-body">
+          <p class="hint">Windows repeat daily. Outside windows, blocked sites are redirected.</p>
+          <div class="input-group time-group">
+            <div class="time-input">
+              <label>Start</label>
+              <input id="start-time" type="time" class="text-input">
+            </div>
+            <div class="time-input">
+              <label>End</label>
+              <input id="end-time" type="time" class="text-input">
+            </div>
+            <button id="add-window" class="btn btn-primary">Add Window</button>
+          </div>
+          <ul id="windows-list" class="list"></ul>
+        </div>
+      </section>
+    </main>
   </div>
   <script src="options.js"></script>
 </body>

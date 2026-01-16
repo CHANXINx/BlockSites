@@ -12,6 +12,12 @@
     "default_title": "BlockSites",
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["*://live.douyin.com/*", "*://www.douyin.com/*"],
+      "js": ["douyin.js"]
+    }
+  ],
   "options_page": "options.html",
   "web_accessible_resources": [
     {

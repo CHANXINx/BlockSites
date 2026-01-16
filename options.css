@@ -1,113 +1,280 @@
 :root {
-  --bg: #f7f7f8;
-  --fg: #222;
-  --card: #fff;
-  --border: #ddd;
-  --muted: #666;
-  --shadow: rgba(0,0,0,0.08);
-  --btn: #4f46e5;
-  --btn-hover: #4338ca;
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --card-bg: #ffffff;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --radius: 12px;
 }
+
 @media (prefers-color-scheme: dark) {
   body[data-theme="system"] {
     --bg: #0f172a;
-    --fg: #e5e7eb;
-    --card: #0b1220;
-    --border: #1f2a44;
-    --muted: #a3a3a3;
-    --shadow: rgba(0,0,0,0.3);
-    --btn: #4f46e5;
-    --btn-hover: #4338ca;
+    --fg: #f8fafc;
+    --card-bg: #1e293b;
+    --muted: #94a3b8;
+    --border: #334155;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5);
   }
 }
+
 body[data-theme="dark"] {
   --bg: #0f172a;
-  --fg: #e5e7eb;
-  --card: #0b1220;
-  --border: #1f2a44;
-  --muted: #a3a3a3;
-  --shadow: rgba(0,0,0,0.3);
-  --btn: #4f46e5;
-  --btn-hover: #4338ca;
+  --fg: #f8fafc;
+  --card-bg: #1e293b;
+  --muted: #94a3b8;
+  --border: #334155;
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5);
 }
-body[data-theme="light"] {
-  --bg: #f7f7f8;
-  --fg: #222;
-  --card: #fff;
-  --border: #ddd;
-  --muted: #666;
-  --shadow: rgba(0,0,0,0.08);
-  --btn: #4f46e5;
-  --btn-hover: #4338ca;
-}
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   background: var(--bg);
   color: var(--fg);
+  font-size: 14px;
+  line-height: 1.5;
 }
+
 .container {
-  max-width: 720px;
-  margin: 24px auto;
-  background: var(--card);
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
-h1 {
-  font-size: 22px;
-  margin: 0 0 16px;
+
+/* Header */
+.header {
+  margin-bottom: 40px;
+  text-align: center;
 }
-h2 {
-  font-size: 18px;
-  margin: 24px 0 8px;
-}
-.row {
+
+.logo {
   display: flex;
-  gap: 8px;
   align-items: center;
-  margin-bottom: 12px;
+  justify-content: center;
+  gap: 12px;
+  color: var(--primary);
+  margin-bottom: 8px;
 }
-label {
-  min-width: 160px;
-}
-input {
-  flex: 1;
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  background: var(--btn);
-  color: #fff;
-  cursor: pointer;
-}
-button:hover {
-  background: var(--btn-hover);
-}
-ul {
-  list-style: none;
-  padding: 0;
+
+.logo h1 {
   margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--fg);
 }
-li {
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+/* Form Controls */
+.control-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+  padding: 16px 0;
+}
+
+.control-group:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.control-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control-label label {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--muted);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.switch-label:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .switch-label {
+  background-color: var(--primary);
+}
+
+input:checked + .switch-label:before {
+  transform: translateX(20px);
+}
+
+/* Inputs & Buttons */
+.input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.text-input, .select-input {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.text-input:focus, .select-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.text-input {
+  flex: 1;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+/* Lists */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   border: 1px solid var(--border);
   border-radius: 8px;
-  margin-bottom: 8px;
-  background: var(--card);
+  overflow: hidden;
 }
-.item-actions {
+
+.list li {
   display: flex;
-  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
 }
-.hint {
-  font-size: 12px;
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.list li:hover {
+  background: var(--bg);
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
   color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn:hover {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Time Inputs */
+.time-group {
+  align-items: flex-end;
+}
+
+.time-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.time-input label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 16px 0;
 }
